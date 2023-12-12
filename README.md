@@ -12,6 +12,7 @@ The data alignment tutorial is to test data alignment in c++ with socket program
 			§ Let's also assume the program is a Book.
 				□ Code:
 
+```
 #ifndef DATA_ALIGNMENT_H
 #define DATA_ALIGNMENT_H
 #include <iostream>
@@ -28,7 +29,7 @@ class dataAlignment {
         bool is_member_only;  // 1 byte
 };
 #endif
-
+```
 	• Data alignment is achieved by dividing the allocated memory into equal-sized segments.
 		○ Note: each size corresponds to the maximum alignment.
 
