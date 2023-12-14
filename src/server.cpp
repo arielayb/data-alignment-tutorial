@@ -6,7 +6,9 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <dataAlignment.h>
 #define PORT 8080
+
 int main(int argc, char const* argv[])
 {
 	int server_fd, new_socket;
@@ -14,8 +16,12 @@ int main(int argc, char const* argv[])
 	struct sockaddr_in address;
 	int opt = 1;
 	socklen_t addrlen = sizeof(address);
-	char buffer[1024] = { 0 };
-	char* hello = "Hello from server";
+    dataAlignment * dataBuff;
+	uint8_t buffer[12] = { 0 };
+
+	// cast the data alignment packet class and 
+	// make a reference to the buffer array
+	dataBuff = (dataAlignment*)&buffer;
 
 	// Creating socket file descriptor
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -56,7 +62,7 @@ int main(int argc, char const* argv[])
 				1024 - 1); // subtract 1 for the null
 							// terminator at the end
 	printf("%s\n", buffer);
-	send(new_socket, hello, strlen(hello), 0);
+	send(new_socket, dataBuff, sizeof(dataBuff), 0);
 	printf("Hello message sent\n");
 
 	// closing the connected socket

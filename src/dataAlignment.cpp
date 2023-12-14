@@ -2,6 +2,7 @@
 #include <dataNotAligned.h>
 
 int main(){
+
     dataAlignment data;
     dataNotAligned data2;
 

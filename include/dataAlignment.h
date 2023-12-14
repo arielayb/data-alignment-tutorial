@@ -5,16 +5,18 @@
 
 // A size total of 16 bytes with padding for this class.
 // On the other hand, adding __attribute__((packed)) at the end of this class object
-// will be the total size of 13 bytes.
+// will be the total size of 12 bytes.
 class dataAlignment {
     public:
-        int no_comments;      // 4 bytes
-        int no_claps;         // 4 bytes
-        char title;           // 1 byte
-        char author;          // 1 byte
-        bool is_published;    // 1 byte
-        bool is_member_only;  // 1 byte
-
+        char *title;           // 8 bytes
+        char *author;          // 8 bytes
+        char *body;            // 8 bytes
+        bool is_published;     // 1 byte
+        bool is_member_only;   // 1 byte
+        // padding                2 bytes
+        int no_comments;       // 4 bytes
+        int no_claps;          // 4 bytes
+        // padding                4 bytes
 };
 
 #endif
