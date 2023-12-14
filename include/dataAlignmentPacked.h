@@ -3,9 +3,9 @@
 
 #include <iostream>
 
-// A size total of 16 bytes with padding for this class.
+// A size total of 40 bytes with padding for this class.
 // On the other hand, adding __attribute__((packed)) at the end of this class object
-// will be the total size of 40 bytes.
+// will be the total size of 34 bytes.
 class dataAlignmentPacked {
     public:
         char *title;           // 8 bytes

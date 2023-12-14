@@ -3,9 +3,7 @@
 
 #include <iostream>
 
-// A size total of 16 bytes with padding for this class.
-// On the other hand, adding __attribute__((packed)) at the end of this class object
-// will be the total size of 40 bytes.
+// A size total of 56 bytes with padding for this class.
 class dataNotAligned {
     public:
         int no_claps;         // 4 bytes
